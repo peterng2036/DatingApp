@@ -477,3 +477,4 @@ $RECYCLE.BIN/
 *.lnk
 API/datingapp.db-shm
 API/datingapp.db-wal
+API/datingapp.db
