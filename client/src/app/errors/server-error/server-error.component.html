@@ -1,0 +1,19 @@
+<h4>
+  Interna server error - refreshing the page will make the error disapear!
+</h4>
+
+<ng-container *ngIf="error">
+  <h5 class="text-danger">Error: {{ error.message }}</h5>
+  <p class="font-weight-bold">Note: This is a custom error</p>
+
+  <p>What to do next?</p>
+  <ol>
+    <li>Open dev tools! Then check the network tab</li>
+    <li>Examin the request URL - what API endpoint are you requesting</li>
+    <li>Reproduce the problem in Postman</li>
+  </ol>
+  <p style="font-weight: bold">Stak Trace:</p>
+  <code class="mt-5" style="background-color: gainsboro">
+    {{ error.details }}
+  </code>
+</ng-container>
