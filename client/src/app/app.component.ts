@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { User } from './_models/user';
 import { AccountService } from './_services/account.service';
@@ -11,28 +10,10 @@ import { AccountService } from './_services/account.service';
 export class AppComponent implements OnInit {
   title = 'client!ad!!!!';
   users: any;
-  constructor(
-    private httpClient: HttpClient,
-    private accountService: AccountService
-  ) {}
+  constructor(private accountService: AccountService) {}
 
   ngOnInit(): void {
-    this.getUsers();
     this.setCurrentUser();
-  }
-
-  private getUsers() {
-    this.httpClient.get('https://localhost:5001/api/users').subscribe({
-      next: (res) => {
-        this.users = res;
-      },
-      error: (error) => {
-        console.error(error);
-      },
-      complete: () => {
-        console.log('Request has completed');
-      },
-    });
   }
 
   setCurrentUser() {
