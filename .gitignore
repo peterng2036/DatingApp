@@ -483,3 +483,4 @@ API/datingapp.db-wal
 API/datingapp.db-shm
 API/datingapp.db
 API/appsettings.json
+API/appsettings.Development.json
