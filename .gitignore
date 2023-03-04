@@ -479,5 +479,7 @@ datingapp.db-shm
 datingapp.db-wal
 datingapp.db
 
-*.db
+API/datingapp.db-wal
+API/datingapp.db-shm
 API/datingapp.db
+API/appsettings.json
