@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Entities;
 using API.Extensions;
 using Microsoft.AspNetCore.Identity;
 
@@ -26,9 +27,7 @@ namespace API.Data
         public string Country { get; set; }
         public List<Photo> Photos { get; set; } = new();
 
-        // public int GetAge()
-        // {
-        //     return DateOfBirth.CalculateAge();
-        // }
+        public List<UserLike> LikedByUsers { get; set; }
+        public List<UserLike> LikedUsers { get; set; }
     }
 }

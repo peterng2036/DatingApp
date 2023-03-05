@@ -8,9 +8,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
 
 namespace API.Helpers
 {
-    public class PageList<T> : List<T>
+    public class PagedList<T> : List<T>
     {
-        public PageList(IEnumerable<T> items, int count, int pageNumber, int pageSize)
+        public PagedList(IEnumerable<T> items, int count, int pageNumber, int pageSize)
         {
             CurretPage = pageNumber;
             TotalPages = (int)Math.Ceiling(count / (double)pageSize);
@@ -24,11 +24,11 @@ namespace API.Helpers
         public int PageSize { get; set; }
         public int TotalCount { get; set; }
 
-        public static async Task<PageList<T>> CreateAsync(IQueryable<T> source, int pageNumber, int pageSize)
+        public static async Task<PagedList<T>> CreateAsync(IQueryable<T> source, int pageNumber, int pageSize)
         {
             var count = await source.CountAsync();
             var items = await source.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
-            return new PageList<T>(items, count, pageNumber, pageSize);
+            return new PagedList<T>(items, count, pageNumber, pageSize);
         }
     }
 }

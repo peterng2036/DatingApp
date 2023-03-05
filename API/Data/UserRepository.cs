@@ -57,7 +57,7 @@ namespace API.Data
                         .SingleOrDefaultAsync();
         }
 
-        public async Task<PageList<MemberDTO>> GetMembersAsync(UserParams userParams)
+        public async Task<PagedList<MemberDTO>> GetMembersAsync(UserParams userParams)
         {
             var query = _context.Users.AsQueryable();
             query = query.Where(x => x.UserName != userParams.CurrentUsername);
@@ -76,7 +76,7 @@ namespace API.Data
 
             var exQuery = query.AsNoTracking().ProjectTo<MemberDTO>(_mapper.ConfigurationProvider);
 
-            return await PageList<MemberDTO>.CreateAsync(exQuery, userParams.PageNumber, userParams.PageSize);
+            return await PagedList<MemberDTO>.CreateAsync(exQuery, userParams.PageNumber, userParams.PageSize);
         }
 
     }

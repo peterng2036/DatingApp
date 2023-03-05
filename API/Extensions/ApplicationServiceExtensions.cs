@@ -21,7 +21,8 @@ namespace API.Extensions
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.Configure<CloudinarySettings>(configuration.GetSection("CloudinarySettings"));
             services.AddScoped<LogUserActivity>();
-            
+            services.AddScoped<ILikesRepository, LikesRepository>();
+
             return services;
         }
     }
