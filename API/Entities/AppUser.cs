@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using API.Entities;
 using API.Extensions;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 
 namespace API.Data
@@ -29,5 +30,8 @@ namespace API.Data
 
         public List<UserLike> LikedByUsers { get; set; }
         public List<UserLike> LikedUsers { get; set; }
+
+        public List<Message> MessageSent { get; set; }
+        public List<Message> MessageReceived { get; set; }
     }
 }
